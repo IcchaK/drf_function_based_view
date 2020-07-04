@@ -33,7 +33,7 @@ def api_update_document_view(request,id):
 
     if request.method == 'PUT':
         import os
-        file_ext = os.path.splitext(str(request.data['docfile']))[1]
+        file_ext = os.path.splitext(str(request.data['eBookFile']))[1]
         
         if not file_ext.lower() == '.pdf':
             return Response(data={'failure':'invalid file format'})
@@ -63,7 +63,7 @@ def api_delete_document_view(request,id):
 @api_view(['POST',])
 def api_create_document_view(request):
     user = User.objects.get(pk=1)
-    document_ob = Document(author=user)
+    document_ob = Document(addedBy=user)
     if request.method == 'POST':
         serializer = DocumentSerializer(document_ob,data=request.data)
         if serializer.is_valid():

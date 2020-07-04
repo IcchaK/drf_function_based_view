@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
+python-crontab = "*"
+mysqlclient = "*"
+nltk = "*"
+slate3k = "*"
 
 [requires]
 python_version = "3.7"
